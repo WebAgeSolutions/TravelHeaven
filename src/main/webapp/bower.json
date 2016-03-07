@@ -1,0 +1,12 @@
+{
+  "name": "TravelHeaven",
+  "homepage": "https://github.com/WebAgeSolutions/TravelHeaven",
+  "authors": [
+    "Web Age Solutions Inc."
+  ],
+  "description": "Tropical travel booking web site",
+  "private": true,
+  "dependencies": {
+    "bootstrap": "^3.3.6"
+  }
+}
