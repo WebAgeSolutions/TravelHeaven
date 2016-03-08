@@ -12,7 +12,7 @@ import javax.ws.rs.core.MediaType;
 import com.webage.travel.model.dao.PackageDAO;
 import com.webage.travel.model.entity.TravelPackage;
 
-@Path("/catalog")
+@Path("/booking")
 public class CatalogService {
 	@EJB
 	PackageDAO pDAO;
@@ -20,11 +20,7 @@ public class CatalogService {
 	@GET
 	@Path("/package")
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<TravelPackage> getAllPackages(@QueryParam("sort") String sortBy) {
-		if (sortBy == null) {
-			sortBy = "title";
-		}
-		
-		return pDAO.getAllPackages(sortBy);
+	public List<TravelPackage> getAllPackages() {
+		return pDAO.getAllPackages();
 	}
 }
