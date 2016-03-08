@@ -19,11 +19,10 @@ public class PackageDAO {
 	@PersistenceContext(unitName="TravelPersistenceUnit")
 	private EntityManager em;
 	
-	public List<TravelPackage> getAllPackages(String sortBy) {
+	public List<TravelPackage> getAllPackages() {
 		Query q = em.createNativeQuery(
-				"select * from TravelPackage order by ?",
+				"select * from TravelPackage",
 				TravelPackage.class);
-		q.setParameter(1, sortBy);
 		
 		return (List<TravelPackage>) q.getResultList();
 	}

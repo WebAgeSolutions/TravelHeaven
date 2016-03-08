@@ -13,7 +13,7 @@ import com.webage.travel.model.dao.PackageDAO;
 import com.webage.travel.model.entity.TravelPackage;
 
 @Path("/booking")
-public class CatalogService {
+public class BookingService {
 	@EJB
 	PackageDAO pDAO;
 	
