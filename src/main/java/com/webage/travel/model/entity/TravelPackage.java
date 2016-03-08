@@ -8,7 +8,6 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 @Entity
 @Table(name="TravelPackage")
-@XmlRootElement
 public class TravelPackage {
 	@Id
 	@Column(name="id")
