@@ -30,6 +30,10 @@ public class PackageDAO {
 		return (List<TravelPackage>) q.getResultList();
 	}
 	
+	public TravelPackage getPackageById(long packageId) {
+		return em.find(TravelPackage.class, packageId);
+	}
+	
 	public void addToBooking(Booking b) {
 		em.persist(b);
 	}
@@ -43,9 +47,6 @@ public class PackageDAO {
 		ArrayList<BookingDetails> result = new ArrayList();
 		
 		for (Object[] item : list) {
-			System.out.println(item[0].getClass().getName());
-			System.out.println(item[1].getClass().getName());
-			
 			BookingDetails d = new BookingDetails();
 			
 			d.setBooking((Booking) item[0]); 
