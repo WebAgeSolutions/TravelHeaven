@@ -9,6 +9,7 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import javax.sql.DataSource;
 
+import com.webage.travel.model.entity.Booking;
 import com.webage.travel.model.entity.TravelPackage;
 
 @Stateless
@@ -25,5 +26,9 @@ public class PackageDAO {
 				TravelPackage.class);
 		
 		return (List<TravelPackage>) q.getResultList();
+	}
+	
+	public void addToBooking(Booking b) {
+		em.persist(b);
 	}
 }
