@@ -17,12 +17,12 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-3"></div>
-			<div class="col-md-6">
+			<div class="col-md-6" ng-app="TravelApp" ng-controller="LoginController as lCtrl">
 				<form>
 					<h2 class="form-signin-heading">Please sign in</h2>
 
-					<input type="text" class="form-control" placeholder="User name" required autofocus> 
-					<input type="password" class="form-control" placeholder="Password" required>
+					<input ng-model="lCtrl.userName" type="text" class="form-control" placeholder="User name" required autofocus> 
+					<input ng-model="lCtrl.password" type="password" class="form-control" placeholder="Password" required>
 					
 					<button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
 				</form>
