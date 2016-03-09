@@ -46,7 +46,7 @@ public class BookingService {
 	@POST
 	@Path("/book-package")
 	@Consumes(MediaType.APPLICATION_JSON)
-	public void getMoodStatus(Booking b) {
+	public void addToBooking(Booking b) {
 		pDAO.addToBooking(b);
 	}
 
