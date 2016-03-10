@@ -6,16 +6,18 @@ angular.module("TravelApp")
 	this.errorMessage = undefined;
 	
 	this.login = function() {
+		var self = this;
+		
 		LoginSvc.login(this.userName, this.password).then(
 				function(response) {
 					if (response.status === 204) {
 						document.location = "index.html";
 					} else {
-						this.errorMessage = "Login failed.";
+						self.errorMessage = "Login failed.";
 					}
 				},
 				function() {
-					this.errorMessage = "Login failed.";
+					self.errorMessage = "Login failed.";
 				}
 		);
 	}

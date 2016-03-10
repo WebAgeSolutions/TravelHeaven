@@ -20,6 +20,7 @@
 			<div class="col-md-6" ng-app="TravelApp" ng-controller="LoginController as lCtrl">
 				<form>
 					<h2 class="form-signin-heading">Please sign in</h2>
+					<div style="color:red" ng-if="lCtrl.errorMessage !== undefined">{{lCtrl.errorMessage}}</div>
 
 					<input ng-model="lCtrl.userName" type="text" class="form-control" placeholder="User name" required autofocus> 
 					<input ng-model="lCtrl.password" type="password" class="form-control" placeholder="Password" required>
