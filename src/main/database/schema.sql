@@ -26,7 +26,19 @@ create table Booking (
 	foreign key (packageId) references TravelPackage(id)
 );
 
+create table Favorite (
+	userId varchar(256) not null,
+	packageId integer not null,
+	
+	primary key (userId, packageId),
+	foreign key (packageId) references TravelPackage(id)
+);
+
 insert into TravelPackage (title, description, price, rating, featured, image) values
-('South Beach Hotel', 'Stay right in the middle of the action.', 250.00, 4.5, 'N', '');
+('Harbor cruise', 'Enjoy the sights and sound of the harbor in this 3 hour long cruise. Light snacks and non-alcoholic beverage will be served.', 99.00, 4.5, 'N', 'harbor-cruise.jpg');
 insert into TravelPackage (title, description, price, rating, featured, image) values
-('Fabulous dining', 'Dine at some of the most beautiful places.', 125.00, 5, 'Y', '');
+('Helicopter ride', 'Watch scenic Hawai from a helicopter. Our knowledgable guide pilot will give you a tour of the volcanoes. The tour is 45 minutes long.', 150.00, 5, 'Y', 'helicopter-ride.jpg');
+insert into TravelPackage (title, description, price, rating, featured, image) values
+('Horseback riding', 'Two hour long guided ride through the mountains. Enjoy the fresh air and learn about the flora and fauna of this area.', 75.00, 3.5, 'Y', 'horseback.jpg');
+insert into TravelPackage (title, description, price, rating, featured, image) values
+('Sunset dinner', 'Enjoy gourmet dinner overlooking the ocean in a most romantic setting.', 55.00, 5, 'Y', 'sunset-dinner.jpg');
