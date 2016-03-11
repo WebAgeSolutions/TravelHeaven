@@ -3,6 +3,7 @@ package com.webage.travel.service;
 import java.util.List;
 
 import javax.ejb.EJB;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
@@ -46,14 +47,19 @@ public class BookingService {
 	@POST
 	@Path("/book-package")
 	@Consumes(MediaType.APPLICATION_JSON)
-	public void addToBooking(Booking b) {
-		pDAO.addToBooking(b);
+	public void addToBooking(Booking b, 
+			@Context final HttpServletRequest request, 
+			@Context final HttpServletResponse response) {
+		String userId = (String) request.getSession().getAttribute("userId");
+		
+		if (userId == null) {
+			//User hasn't logged in
+			response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);			
+		} else {
+			b.setUserId(userId);
+			
+			pDAO.addToBooking(b);
+		}
 	}
 
-	@GET
-	@Path("/user/{userId}")
-	@Produces(MediaType.APPLICATION_JSON)
-	public List<BookingDetails> getUserBookings(@PathParam("userId") String userId) {
-		return pDAO.getUserBookings(userId);
-	}
 }
