@@ -23,5 +23,9 @@ angular.module("TravelApp")
 		return $http.get("/TravelHeaven/booking/package");
 	};
 	
+	svc.bookPackage = function(b) {
+		return $http.post("/TravelHeaven/booking/book-package", b);
+	}
+	
 	return svc;
 });

@@ -8,8 +8,8 @@
 			<h3>{{package.title}}</h3>
 			<p>{{package.description}}</p>
 			<p>
-				<input type="date"></input>
-				<a href="" class="btn btn-primary" role="button">Book</a>
+				<input type="date" ng-model="package.forDate"></input>
+				<a href="" class="btn btn-primary" role="button" ng-click="pCtrl.bookPackage(package)">Book</a>
 			</p>
 		</div>
 	</div>

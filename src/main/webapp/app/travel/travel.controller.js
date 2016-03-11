@@ -25,6 +25,17 @@ angular.module("TravelApp")
 .controller("PackageListController", function(BookingService) {
 	this.packageList = undefined;
 	
+	this.bookPackage = function(p) {
+		var forDateStr = "" + (p.forDate.getMonth() + 1) + "/" + p.forDate.getDate() + "/" + p.forDate.getFullYear();
+		
+		BookingService.bookPackage({
+			packageId: p.packageId,
+			forDate: forDateStr
+		}).then(function() {
+			alert("Package was added to your booking.");
+		})
+	}
+	
 	this.init = function() {
 		var self = this;
 		
