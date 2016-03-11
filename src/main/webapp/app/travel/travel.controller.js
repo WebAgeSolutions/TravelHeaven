@@ -1,6 +1,6 @@
 //Controller code goes here
 angular.module("TravelApp")
-.controller("LoginController", function(LoginSvc) {
+.controller("LoginController", function(LoginService) {
 	this.userName = "";
 	this.password = "";
 	this.errorMessage = undefined;
@@ -8,7 +8,7 @@ angular.module("TravelApp")
 	this.login = function() {
 		var self = this;
 		
-		LoginSvc.login(this.userName, this.password).then(
+		LoginService.login(this.userName, this.password).then(
 				function(response) {
 					if (response.status === 204) {
 						document.location = "index.html";
@@ -21,4 +21,17 @@ angular.module("TravelApp")
 				}
 		);
 	}
+})
+.controller("PackageListController", function(BookingService) {
+	this.packageList = undefined;
+	
+	this.init = function() {
+		var self = this;
+		
+		BookingService.fetchPackageList().then(function(response) {
+			self.packageList = response.data;
+		});
+	}
+	
+	this.init();
 });

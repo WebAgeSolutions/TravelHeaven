@@ -1,6 +1,6 @@
 //Service code goes here
 angular.module("TravelApp")
-.factory("LoginSvc", function($http) {
+.factory("LoginService", function($http) {
 	var svc = {};
 	
 	svc.login = function(userId, password) {
@@ -14,5 +14,14 @@ angular.module("TravelApp")
 		return $http.post("/TravelHeaven/auth/logout");
 	}
 
+	return svc;
+})
+.factory("BookingService", function($http) {
+	var svc = {};
+	
+	svc.fetchPackageList = function() {
+		return $http.get("/TravelHeaven/booking/package");
+	};
+	
 	return svc;
 });
