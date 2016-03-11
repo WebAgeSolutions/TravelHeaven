@@ -2,7 +2,7 @@
 
 	<!-- Template for each product -->
 	<div class="thumbnail" ng-repeat="package in pCtrl.packageList">
-		<img class="img-responsive" src="images/{{package.image}}"
+		<img class="img-responsive" ng-src="images/{{package.image}}"
 			style="display: block;">
 		<div class="caption">
 			<h3>{{package.title}}</h3>
