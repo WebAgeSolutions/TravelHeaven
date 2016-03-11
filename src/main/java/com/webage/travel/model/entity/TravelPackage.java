@@ -18,6 +18,7 @@ public class TravelPackage {
 	private double price;
 	private double rating;
 	private String featured;
+	private String image;
 	
 	public long getPackageId() {
 		return packageId;
@@ -54,5 +55,11 @@ public class TravelPackage {
 	}
 	public void setFeatured(String featured) {
 		this.featured = featured;
-	}	
+	}
+	public String getImage() {
+		return image;
+	}
+	public void setImage(String image) {
+		this.image = image;
+	}
 }
