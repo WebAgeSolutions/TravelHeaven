@@ -1,13 +1,13 @@
-<div>
+<div ng-controller="BookedItemsController as bCtrl">
 	<h2>Your Bookings</h2>
 	
 	<!-- Template for each booked item -->
-	<div class="thumbnail">
-		<img class="img-responsive" src="images/sunset-dinner.jpg"
+	<div class="thumbnail" ng-repeat="item in bCtrl.bookedItems">
+		<img class="img-responsive" ng-src="images/{{item.travelPackage.image}}"
 			style="display: block;">
 		<div class="caption">
-			<h3>Package title</h3>
-			<p>Package description.</p>
+			<h3>{{item.travelPackage.title}}</h3>
+			<p>{{item.travelPackage.description}}</p>
 			<p>
 				<a href="" class="btn btn-danger" role="button">Cancel Booking</a>
 			</p>

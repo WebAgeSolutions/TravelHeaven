@@ -4,10 +4,8 @@ angular.module("TravelApp", ["ngRoute"])
     $routeProvider.when("/package-list", {
         templateUrl: "app/travel/package_list.tpl.html"
     })
-    /*
-    .when("/shipping", {
-        templateUrl: "ship.html"
+    .when("/booked-items", {
+        templateUrl: "app/travel/booked_items.tpl.html"
     })
-    */
     .otherwise("/package-list");
 })

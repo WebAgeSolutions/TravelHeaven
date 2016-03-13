@@ -23,8 +23,12 @@ angular.module("TravelApp")
 		return $http.get("/TravelHeaven/booking/package");
 	};
 	
-	svc.bookPackage = function(b) {
-		return $http.post("/TravelHeaven/booking/book-package", b);
+	svc.bookPackage = function(packageToBook) {
+		return $http.post("/TravelHeaven/booking/book-package", packageToBook);
+	}
+	
+	svc.getBookedPackages = function() {
+		return $http.get("/TravelHeaven/booking/book-package");
 	}
 	
 	return svc;

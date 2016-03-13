@@ -45,4 +45,17 @@ angular.module("TravelApp")
 	}
 	
 	this.init();
+})
+.controller("BookedItemsController", function(BookingService) {
+	this.bookedItems = undefined;
+	
+	this.init = function() {
+		var self = this;
+		
+		BookingService.getBookedPackages().then(function(response) {
+			self.bookedItems = response.data;
+		});
+	}
+	
+	this.init();
 });
