@@ -62,4 +62,21 @@ public class BookingService {
 		}
 	}
 
+	@GET
+	@Path("/book-package")
+	@Produces(MediaType.APPLICATION_JSON)
+	public List<BookingDetails> getBookedPackages( 
+			@Context final HttpServletRequest request, 
+			@Context final HttpServletResponse response) {
+		String userId = (String) request.getSession().getAttribute("userId");
+		
+		if (userId == null) {
+			//User hasn't logged in
+			response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);		
+			
+			return null;
+		} else {
+			return pDAO.getUserBookings(userId);
+		}
+	}
 }
