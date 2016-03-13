@@ -10,7 +10,7 @@
 			<p>{{item.travelPackage.description}}</p>
 			<h4>${{item.travelPackage.price}}</h4>
 			<p>
-				<a href="" class="btn btn-danger" role="button">Cancel Booking</a>
+				<a href="" ng-click="bCtrl.cancelBooking(item.booking.bookingId)" class="btn btn-danger" role="button">Cancel Booking</a>
 			</p>
 		</div>
 	</div>

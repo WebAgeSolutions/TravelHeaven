@@ -6,8 +6,10 @@ import java.util.List;
 import javax.annotation.Resource;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 import javax.sql.DataSource;
 
 import com.webage.travel.model.dto.BookingDetails;
@@ -56,5 +58,22 @@ public class PackageDAO {
 		}
 		
 		return result;
+	}
+	
+	public void cancelBooking(String userId, long bookingId) {
+		TypedQuery<Booking> q = em.createQuery("select b from Booking b where b.bookingId=:bookingId and b.userId=:userId",
+				Booking.class);
+		
+		q.setParameter("bookingId", bookingId);
+		q.setParameter("userId", userId);
+
+		try {
+			Booking b = q.getSingleResult();
+	
+			em.remove(b);
+		} catch (NoResultException ex) {
+			//We can not find booking id for that user
+			throw new IllegalAccessError("Invalid booking ID.");
+		}
 	}
 }

@@ -31,5 +31,11 @@ angular.module("TravelApp")
 		return $http.get("/TravelHeaven/booking/book-package");
 	}
 	
+	svc.cancelBooking = function(bookingId) {
+		var url = "/TravelHeaven/booking/book-package/" + bookingId;
+		
+		return $http.delete(url);
+	}
+	
 	return svc;
 });

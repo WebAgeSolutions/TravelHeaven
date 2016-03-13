@@ -49,6 +49,15 @@ angular.module("TravelApp")
 .controller("BookedItemsController", function(BookingService) {
 	this.bookedItems = undefined;
 	
+	this.cancelBooking = function(bookingId) {
+		var self = this;
+
+		BookingService.cancelBooking(bookingId).then(function() {
+			//Reload the booked items
+			self.init();
+		});
+	}
+	
 	this.init = function() {
 		var self = this;
 		
