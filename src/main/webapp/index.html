@@ -32,7 +32,7 @@
               <li><a href="">Favorites</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-              <li><a href="">Logout</a></li>
+              <li ng-controller="LogoutController as lCtrl"><a href="" ng-click="lCtrl.logout()">Logout</a></li>
             </ul>
           </div>
         </div>

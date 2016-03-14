@@ -67,4 +67,11 @@ angular.module("TravelApp")
 	}
 	
 	this.init();
+})
+.controller("LogoutController", function(LoginService) {
+	this.logout = function() {
+		LoginService.logout().then(function() {
+			document.location = "login.html";
+		});
+	}
 });

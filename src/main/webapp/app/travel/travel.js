@@ -9,3 +9,16 @@ angular.module("TravelApp", ["ngRoute"])
     })
     .otherwise("/package-list");
 })
+.config(function ($httpProvider) {
+	$httpProvider.interceptors.push(function($q) {
+		  return {
+		    'responseError': function(response) {
+		    		if (response.status === 401) {
+		    			document.location = "login.html";
+		    		}
+		    		
+		    		return $q.reject(response);
+		    }
+		  };
+		});	
+})
