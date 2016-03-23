@@ -26,14 +26,6 @@ create table Booking (
 	foreign key (packageId) references TravelPackage(id)
 );
 
-create table Favorite (
-	userId varchar(256) not null,
-	packageId integer not null,
-	
-	primary key (userId, packageId),
-	foreign key (packageId) references TravelPackage(id)
-);
-
 insert into TravelPackage (title, description, price, rating, featured, image) values
 ('Harbor cruise', 'Enjoy the sights and sound of the harbor in this 3 hour long cruise. Light snacks and non-alcoholic beverage will be served.', 99.00, 4.5, 'N', 'harbor-cruise.jpg');
 insert into TravelPackage (title, description, price, rating, featured, image) values
