@@ -6,6 +6,6 @@
 	    JdbcDriver  com.mysql.jdbc.Driver
 	    JdbcUrl jdbc:mysql://localhost/traveldb
 	    UserName    root
-	    Password    root
+	    Password    root123
 	</Resource>  
 </tomee>
